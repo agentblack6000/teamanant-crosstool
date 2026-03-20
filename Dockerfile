@@ -19,6 +19,9 @@ RUN useradd -d ${CTNG_HOME_DIR} -m -g ${CTNG_GID} -u ${CTNG_UID} -s /bin/bash ct
 ENV CTNG_BUILD_DIR=${CTNG_BUILD_DIR}
 ENV PATH="${CTNG_BUILD_DIR}/bin:${PATH}"
 
+# Add the compiler as well to the path
+ENV PATH="${CTNG_HOME_DIR}/x-tools/arm-cortex_a8-linux-gnueabi/bin:${PATH}"
+
 # Non-interactive configuration of tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
